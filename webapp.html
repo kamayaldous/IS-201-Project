@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Joke Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 2em;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-top: 2em;
+    }
+
+    input, button {
+      padding: 0.75em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #jokeBox {
+      margin-top: 1em;
+      padding: 1em;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-height: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Joke Generator</h1>
+  <div class="container">
+    <input type="text" id="topicInput" placeholder="Enter a topic for the joke...">
+    <button onclick="generateJoke()">Generate Joke About Topic</button>
+    <button onclick="generateRandomJoke()">Generate Random Joke</button>
+    <button onclick="clearJoke()">Clear Joke</button>
+    <div id="jokeBox">Your joke will appear here.</div>
+  </div>
+
+  <script>
+    const randomJokes = [
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "Why did the chicken join a band? Because it had the drumsticks!",
+      "I would tell you a construction joke... but I’m still working on it.",
+      "Why don’t skeletons fight each other? They don’t have the guts.",
+      "What do you call cheese that isn't yours? Nacho cheese.",
+      "I'm on a seafood diet. I see food and I eat it.",
+      "Parallel lines have so much in common. It’s a shame they’ll never meet.",
+      "Why was the math book sad? It had too many problems.",
+      "I used to play piano by ear, but now I use my hands.",
+      "Why did the coffee file a police report? It got mugged."
+    ];
+
+    const topicJokeTemplates = [
+      "Why did the {topic} cross the road? Because it saw the punchline coming!",
+      "I tried to start a conversation about {topic}, but it just wasn't a hot topic.",
+      "Have you heard about the {topic} stand-up comedian? Their jokes are un-peel-ievable!",
+      "If I had a dollar for every time someone mentioned {topic}, I'd be rich... and still confused.",
+      "They said {topic} couldn’t be funny. Challenge accepted.",
+      "What's the difference between a {topic} and a bad joke? Nothing. You're experiencing both right now!",
+      "I once saw a {topic} walk into a bar... still waiting for the punchline.",
+      "Breaking news: {topic} found guilty of stealing all the laughs!",
+      "The secret to happiness? It's hidden inside a really good {topic} joke.",
+      "{topic} jokes are like dad jokes — you groan, but deep down you love them."
+    ];
+
+    function generateRandomJoke() {
+      const randomIndex = Math.floor(Math.random() * randomJokes.length);
+      document.getElementById('jokeBox').textContent = randomJokes[randomIndex];
+    }
+
+    function generateJoke() {
+      const topic = document.getElementById('topicInput').value.trim();
+      if (!topic) {
+        document.getElementById('jokeBox').textContent = "Please enter a topic!";
+        return;
+      }
+
+      const templateIndex = Math.floor(Math.random() * topicJokeTemplates.length);
+      const jokeTemplate = topicJokeTemplates[templateIndex];
+      const joke = jokeTemplate.replace(/{topic}/gi, topic);
+      document.getElementById('jokeBox').textContent = joke;
+    }
+
+    function clearJoke() {
+      document.getElementById('jokeBox').textContent = "";
+      document.getElementById('topicInput').value = "";
+    }
+  </script>
+
+</body>
+</html>
+

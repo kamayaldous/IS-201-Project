@@ -1,0 +1,69 @@
+/* General Page Styling */
+body {
+  background-color: whitesmoke; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  color: #333; 
+  margin: 0; 
+  padding: 0; 
+  text-align: center; 
+}
+
+/* Header Section */
+.header {
+  background-color: #004080;
+  color: white;
+  padding: 30px;
+}
+
+/* Main Content Sections */
+.content-section,
+.media-section,
+.tableau-section {
+  background-color: white;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);   
+}
+
+/* Images */
+.legend-img {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Footer */
+.footer {
+  margin: 40px 0;
+  font-size: 0.95rem;
+}
+
+/* Links */
+a {
+  color: #004080;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Centered List Fix */
+ol, ul {
+  display: table;       /* Makes the whole list block behave like a centered element */
+  margin: 0 auto;        /* Horizontally centers the list block */
+  text-align: left;      /* Aligns the bullet/number text correctly */
+}
+
+/* Fix for nested lists (so they don't look like a staircase) */
+ol li, ul li {
+  margin-bottom: 0.5em;
+}
+
+/* Indent nested lists correctly */
+ol ul, ul ul {
+  margin-left: 20px;
+}
